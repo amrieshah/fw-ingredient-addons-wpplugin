@@ -23,12 +23,13 @@ $image_alt = get_post_meta( get_post_thumbnail_id($pID), '_wp_attachment_image_a
 		<?php
 		// Start the Loop.
 		while ( have_posts() ) : the_post(); ?>
-			<article id="post-<?php the_ID(); ?>" <?php post_class( "toppadding_5" ); ?>>
-
+            <article id="post-<?php the_ID(); ?>" <?php post_class( "toppadding_5" ); ?>>
+            <div class="primary">
                 <?php if ( has_post_thumbnail()) { ?>
                     <img src="<?php echo esc_url( get_the_post_thumbnail_url() ); ?>" alt="<?php echo esc_html( $image_alt ); ?>" class="alignleft big-margin ingredient-image-radius"/>
                 <?php } ?>
-
+            </div>
+            <div class="secondary">
                 <h2 class="">
                     <?php the_title(); ?>
                 </h2>                
@@ -39,7 +40,7 @@ $image_alt = get_post_meta( get_post_thumbnail_id($pID), '_wp_attachment_image_a
                         <p><?php echo $detail; ?></p>
                     <?php endforeach; ?> 
                 </div>
-
+            </div>
 			</article><!-- #post-## -->
 		<?php endwhile; ?>
 	</div><!--eof #content -->
