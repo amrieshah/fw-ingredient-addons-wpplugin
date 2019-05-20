@@ -135,8 +135,10 @@ endswitch;
 $unique_id = uniqid();
 $ingredients = fw()->extensions->get( 'ingredients' );
 $categories = fw()->extensions->get('ingredients')->get_settings();
+$paged = get_query_var('paged');
 $query_post = new WP_Query( array( 
-    'post_type' => $ingredients->get_post_type_name()
+	'post_type' => $ingredients->get_post_type_name(),
+	'nopaging' => true
     ) );
 ?>
 
@@ -170,6 +172,6 @@ if ( $atts['show_filters'] ) : ?>
             include( fw()->extensions->get('ingredients')->locate_view_path('ingredient-item') );
             ?>            
             </div>
-        <?php endwhile; ?>		
+        <?php endwhile; ?>
     </div>
 </div>
