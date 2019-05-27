@@ -54,16 +54,18 @@ $unique_id = uniqid();
 			get_template_part( 'template-parts/content', 'none' );
 		endif;
 		?>
-        <?php // Previous/next page navigation.
-            $pagination = paginate_links( array(
-                'prev_text' => __( 'Prev' ),
-                'next_text' => __( 'Next' ),
-                'type'      => 'list',
-            ));
-            if ( $pagination ) {
-                echo '<nav class="pagination-nav">' . wp_kses_post( str_replace( 'page-numbers', 'page-number pagination', $pagination ) ) . '</nav>';
-            }
-        ?>
+            <div class="ingredient-pagination-container">
+            <?php // Previous/next page navigation.
+                $pagination = paginate_links( array(
+                    'prev_text' => __( 'Prev' ),
+                    'next_text' => __( 'Next' ),
+                    'type'      => 'list',
+                ));
+                if ( $pagination ) {
+                    echo '<nav class="pagination-nav ingredient-pagination-container">' . wp_kses_post( str_replace( 'page-numbers', 'page-number pagination', $pagination ) ) . '</nav>';
+                }
+            ?>
+            </div>
         </div>
     </div>
 </div>
