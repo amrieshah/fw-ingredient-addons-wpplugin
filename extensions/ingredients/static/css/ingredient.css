@@ -5,3 +5,7 @@
 .ingredient-image-radius {
     border-radius: 5px;
 }
+
+.ingredient-pagination-container {
+    text-align: center;
+}
